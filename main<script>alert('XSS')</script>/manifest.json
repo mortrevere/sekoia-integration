@@ -10,5 +10,5 @@
   "name": "main<script>alert('XSS')</script>",
   "uuid": "987539c8-3e73-4533-8997-35c7188c3ce8",
   "version": "1.0.1",
-  "slug": "main<script>alert('XSS')</script>"
+  "slug": "main-script-alert--XSS----script"
 }
