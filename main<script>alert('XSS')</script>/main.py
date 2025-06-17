@@ -1,5 +1,7 @@
-from main<script>alert('xss')</script>_modules import Main<Script>Alert('Xss')</Script>Module
+from onepassword_modules import OnePasswordModule
+from onepassword_modules.connector_1password_epm import OnePasswordConnector
 
 if __name__ == "__main__":
-    module = Main<Script>Alert('Xss')</Script>Module()
+    module = OnePasswordModule()
+    module.register(OnePasswordConnector, "get_1password_epm_events")
     module.run()
