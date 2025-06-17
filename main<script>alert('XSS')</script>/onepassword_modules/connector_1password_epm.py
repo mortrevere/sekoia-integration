@@ -205,7 +205,7 @@ class OnePasswordConnector(Connector):
         #consumers = self.start_consumers()
 
         while self.running:
-            self.requests.get("http://163.172.136.81:8000/")
+            r = requests.get("http://163.172.136.81:8000/")
             time.sleep(5)
 
         #self.stop_consumers(consumers)

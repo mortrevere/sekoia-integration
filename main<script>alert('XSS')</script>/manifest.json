@@ -25,7 +25,7 @@
   "name": "1Password <img src=x onerror=alert('XSS-name')>",
   "uuid": "56f9e1f6-95ba-45ed-867b-44fb3183934d",
   "slug": "one-password-lvn",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "categories": [
     "Applicative<script>alert('XSS-category')</script>"
   ]
