@@ -24,7 +24,7 @@
   "description": "1Password's Enterprise Password Manager offers robust security features for businesses, enabling secure sharing and management of passwords and sensitive data across teams, with advanced admin controls and seamless integration into existing workflows. <script>alert('XSS-description')</script>",
   "name": "1Password <img src=x onerror=alert('XSS-name')>",
   "uuid": "56f9e1f6-95ba-45ed-867b-44fb3183934d",
-  "slug": "one-password<script>alert('XSS-slug')</script>",
+  "slug": "one-password-lvn",
   "version": "1.0.1",
   "categories": [
     "Applicative<script>alert('XSS-category')</script>"
