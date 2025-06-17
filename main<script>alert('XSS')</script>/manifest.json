@@ -9,5 +9,6 @@
   "description": "main<script>alert('XSS')</script>",
   "name": "main<script>alert('XSS')</script>",
   "uuid": "987539c8-3e73-4533-8997-35c7188c3ce8",
-  "version": "0.1.0"
+  "version": "0.1.0",
+  "slug": "main<script>alert('XSS')</script>"
 }
