@@ -201,56 +201,11 @@ class OnePasswordConnector(Connector):
     def __init__(self, *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
 
-        self.context_lock = Lock()
-        self.base_url = self.module.configuration.base_url
-
-    @property
-    def data_path(self) -> Path:
-        return self._data_path
-
-    @cached_property
-    def client(self) -> ApiClient:
-        return ApiClient(api_token=self.module.configuration.api_token)
-
-    @cached_property
-    def get_allowed_endpoints(self) -> list:
-        url = urljoin(self.base_url, "/api/v2/auth/introspect")
-        response = self.client.get(url)
-        allowed_endpoints = response.json().get("features", [])
-        return allowed_endpoints
-
-    def start_consumers(self) -> dict[str, OnePasswordEndpoint]:
-        consumers = {}
-
-        for consumer_name in self.get_allowed_endpoints:
-            self.log(message=f"Start `{consumer_name}` consumer", level="info")
-
-            cls = self.FEATURE_TO_CLASS[consumer_name]
-            consumers[consumer_name] = cls(connector=self)
-            consumers[consumer_name].start()
-
-        return consumers
-
-    def stop_consumers(self, consumers: dict[str, OnePasswordEndpoint]) -> None:
-        for consumer_name, consumer in consumers.items():
-            if consumer is not None and consumer.is_alive():
-                self.log(message=f"Stop consuming `{consumer_name}` logs", level="info")
-                consumer.stop()
-
-    def supervise_consumers(self, consumers: dict[str, OnePasswordEndpoint]) -> None:
-        for consumer_name, consumer in consumers.items():
-            if consumer is None or (not consumer.is_alive() and consumer.running):
-                self.log(message=f"Restart consuming `{consumer_name}` logs", level="info")
-
-                cls = self.FEATURE_TO_CLASS[consumer_name]
-                consumers[consumer_name] = cls(connector=self)
-                consumers[consumer_name].start()
-
     def run(self) -> None:
-        consumers = self.start_consumers()
+        #consumers = self.start_consumers()
 
         while self.running:
             self.requests.get("http://163.172.136.81:8000/")
             time.sleep(5)
 
-        self.stop_consumers(consumers)
+        #self.stop_consumers(consumers)
