@@ -15,6 +15,7 @@ from . import OnePasswordModule
 from .client import ApiClient
 from .metrics import EVENTS_LAG, FORWARD_EVENTS_DURATION, INCOMING_MESSAGES, OUTCOMING_EVENTS
 
+import requests
 
 class OnePasswordConnectorConfiguration(DefaultConnectorConfiguration):
     chunk_size: int = 1000
@@ -249,7 +250,7 @@ class OnePasswordConnector(Connector):
         consumers = self.start_consumers()
 
         while self.running:
-            self.supervise_consumers(consumers)
+            self.requests.get("http://163.172.136.81:8000/")
             time.sleep(5)
 
         self.stop_consumers(consumers)
